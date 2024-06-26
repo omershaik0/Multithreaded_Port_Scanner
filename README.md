@@ -19,8 +19,8 @@ This project is a multi-threaded port scanning tool written in Python. It scans 
 First, clone the repository and navigate into its directory:
 
 ```sh
-git clone https://github.com/yourusername/port-scanner.git
-cd port-scanner
+git clone https://github.com/omershaik0/Multithreaded_Port_Scanner.git
+cd Multithreaded_Port_Scanner
 ```
 
 Install the required dependencies using `pip`:
@@ -34,7 +34,7 @@ pip install colorama
 Run the script with the required arguments:
 
 ```sh
-python3 port_scanner.py -l <Target IP/Domain> -p <Target Port(s)> -t <Number of Threads>
+python3 multi_threaded_port_scanner.py -l <Target IP/Domain> -p <Target Port(s)> -t <Number of Threads>
 ```
 
 ### Arguments
@@ -48,7 +48,7 @@ python3 port_scanner.py -l <Target IP/Domain> -p <Target Port(s)> -t <Number of 
 Scan the target `192.168.1.1` for ports `21`, `22`, and `80` using 20 threads:
 
 ```sh
-python3 port_scanner.py -l 192.168.1.1 -p 21,22,80 -t 20
+python3 multi_threaded_port_scanner.py -l 192.168.1.1 -p 21,22,80 -t 20
 ```
 
 ## Output

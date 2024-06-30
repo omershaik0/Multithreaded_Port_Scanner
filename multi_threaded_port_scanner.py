@@ -42,7 +42,7 @@ args = arguments.parse_args()
 target = args.target
 port = args.port
 threads = args.threads
-result = "PORT\tSTATE\n"
+result = "PORT\tSTATE\tSERVICE\n"
 
 
 def ip_check(target):
@@ -67,6 +67,13 @@ print(f"\n{magenta}[*] Scanning Started at {current_time}{reset}\n")
 print(f"{yellow}[!] Scanning Target {target}:{reset}\n")
 
 
+def get_banner(ports, s):
+    try:
+        return s.recv(1024).decode()
+    except:
+        return 'Not Found'
+
+
 def port_scan(t_no):
     global result
     while not q.empty():
@@ -76,7 +83,9 @@ def port_scan(t_no):
             s.settimeout(2)
             connection = s.connect_ex((target, ports))
             if connection == 0:
-                result += f"{red}{ports}{reset}\t{green}OPEN{reset}\n"
+                banner = get_banner(ports, s)
+                banner = ''.join(banner.splitlines())
+                result += f"{red}{ports}{reset}\t{green}OPEN{reset}\t{banner}\n"
             s.close()
         except:
             pass
